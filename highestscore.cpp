@@ -34,6 +34,7 @@ void display_highest_score(int &score) {
         if (!fo.is_open())
             std::cout<<"error, output file could not be opened";
         fo << score;
+        fo.close();
     }
     
 }
