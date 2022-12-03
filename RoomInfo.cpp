@@ -19,7 +19,7 @@ RoomInfo::RoomInfo(char number[3],char building[3], string link)
     {
         classroom[i] = room_number[i-3];
     }
-
+    classroom[6] = '\0';
 }
 
 RoomInfo::RoomInfo(char number[3],char ab,char building[3],string link)
@@ -41,6 +41,7 @@ RoomInfo::RoomInfo(char number[3],char ab,char building[3],string link)
     {
         classroom[i] = room_number[i-3];
     }
+    classroom[6] = '\0';
 }
 
 //Member Function Definitions

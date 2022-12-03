@@ -18,7 +18,7 @@ class RoomInfo
         RoomInfo(char number[3],char building[3],string link);
         RoomInfo(char number[3],char aorb,char building[3],string link);
         string GetLink();
-        char classroom[6];
+        char classroom[7];
 };
 
 #endif
