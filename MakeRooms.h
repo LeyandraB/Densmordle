@@ -4,6 +4,6 @@
 #include <cstring>
 #include "RoomInfo.h"
 
-void MakeCASRooms(RoomInfo**);
+void MakeRooms(RoomInfo**);
 
 #endif
