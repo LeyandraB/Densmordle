@@ -11,7 +11,8 @@ if (!inf.is_open()) {
 }
 string line;
 int lineCount = 0;
- while (getline(inf, line)) {
+ while (!inf.eof()) {
+    getline(inf, line);
  	lineCount++;
  }
 inf.close();
