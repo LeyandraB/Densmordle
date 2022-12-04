@@ -13,8 +13,8 @@ void display_highest_score(int &score) {
     int n;
     if(fi >> n){
     if (n < score){
-        std::cout << "Score: " << score;
-        std::cout << "New High Score: " << score ;
+        std::cout << "Score: " << score << std::endl;
+        std::cout << "New High Score: " << score << std::endl ;
         fi.close();
         std::ofstream fo;
         fo.open("highestscore.txt",std::ofstream::out | std::ofstream::trunc);
@@ -24,14 +24,14 @@ void display_highest_score(int &score) {
         fo.close();
     }
     else {
-        std::cout << "Score: " << score ;
-        std::cout << "Highest Score: "<< n;
+        std::cout << "Score: " << score << std::endl;
+        std::cout << "Highest Score: "<< n << std::endl;
         fi.close();
     }}
      else{
         fi.close();
-        std::cout << "Score: " << score;
-        std::cout << "Highest score: " << score;
+        std::cout << "Score: " << score << std::endl ;
+        std::cout << "Highest score: " << score << std::endl ;
         std::ofstream fo;
         fo.open("highestscore.txt",std::ofstream::out | std::ofstream::trunc);
         if (!fo.is_open())
