@@ -5,7 +5,7 @@ using namespace std;
 
 void MakeRooms(RoomInfo** rooms){ //can also add RoomInfo** rooms_ENG etc as arguments
     char building_chars[] = {'C','A','S'};
-    char roomnum[] = {'1', '0', '3', '\0'};
+    char roomnum[] = {'1', '0', '3'};
     char digit_1;
     char digit_2;
     char digit_3;
