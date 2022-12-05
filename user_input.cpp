@@ -14,7 +14,7 @@ int main(){
     srand(time(0));
     
     RoomInfo* rooms_in_CAS[20];
-    MakeCASRooms(rooms_in_CAS);
+    MakeRooms(rooms_in_CAS);
 
     //Can uncomment this to make sure all the output in each object is correct
     // for(int i = 0; i < 20; i++)

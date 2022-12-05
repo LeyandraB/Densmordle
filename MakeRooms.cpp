@@ -14,6 +14,7 @@ void MakeRooms(RoomInfo** rooms){ //can also add RoomInfo** rooms_ENG etc as arg
     ifstream fin;
     fin.open("Allrooms.txt");
     // loop to create CAS rooms
+    int i = 0;
         while (!fin.eof()){
             fin >> letter_1 >> letter_2 >> letter_3 >> digit_1 >> digit_2 >> digit_3 >> string_link;
             roomnum[0] = digit_1;
@@ -23,6 +24,7 @@ void MakeRooms(RoomInfo** rooms){ //can also add RoomInfo** rooms_ENG etc as arg
             building_chars[1] = letter_2;
             building_chars[2] = letter_3;
             rooms[i] = new RoomInfo(roomnum,building_chars,string_link);
+            i++;
         }
     fin.close();
     //create rooms in other buildings
