@@ -1,6 +1,8 @@
 #include <iostream>
 #include <stdio.h>
-#include <string.h>
+#include <cstring>
+
+#include <stdlib.h>
 
 #define NC "\e[0m"
 #define REDB "\e[41m"
@@ -10,146 +12,124 @@
 using namespace std;
 
 bool validBuilding(char*);
-bool validNumber(char);
+bool validNumber(char*, int i);
 bool validRoomNumber(char*);
-void checkAns(char*, char*);
+bool checkAns(char*, char*);
 
 int main() {
   int numGuesses = 0;
   char* guessedClassroom = new char[8];
   char* referenceClassroom = "CAS B50";
 
-  do {
-    cout << "Enter guess: ";
-    for (int i = 0; i < 8; i++)  {
-      scanf("%c", &guessedClassroom[i]);
-    }
-    checkAns(guessedClassroom, referenceClassroom);
-  } while (*guessedClassroom != *referenceClassroom);
-
-
-
-  /* do 
+    do 
   {
-    cout << "Enter guess: ";
+    
     do 
     {
-      for (int i = 0; i < 7; i++)  
+      cout << "Enter guess: ";
+      for (int i = 0; i < 8; i++)  
       {
         scanf("%c", &guessedClassroom[i]);
       }        
-    } while (!validBuilding(guessedClassroom) || !validRoomNumber(guessedClassroom)); 
+    } while (!validBuilding(guessedClassroom) && !validRoomNumber(guessedClassroom) || !validRoomNumber(guessedClassroom));  //Fix this when you put the and before the or it puts the building twice
+      numGuesses++;
+    /*
+    if (checkAns(guessedClassroom, referenceClassroom))
+      break;
+    else
+      continue;
+    */
+  } while (checkAns(guessedClassroom, referenceClassroom) == false);
 
-    checkAns(guessedClassroom, referenceClassroom);
-    numGuesses++;
-  } while (guessedClassroom != referenceClassroom);
-
-  cout << "You won in " << numGuesses << " tries!" << endl; 
-  */
+  cout << "You won in " << numGuesses << " tries!" << endl; //Fix the tries
   
   // cout << endl << referenceClassroom << endl;
 
   return 0;
 }
 
-
-/*
-bool validBuilding(char* guess)  {
-  if (guess[3] != ' ')
+bool validBuilding(char* guess)
+{
+  
+  
+if (guess[0] == 'A' && guess[1] == 'B' && guess[2] == 'G') 
+    return true;
+  else if (guess[0] == 'A' && guess[1] == 'L' && guess[2] == 'B')
+    return true;
+  else if (guess[0] == 'C' && guess[1] == 'A' && guess[2] == 'S')
+    return true;
+  else if (guess[0] == 'C' && guess[1] == 'F' && guess[2] == 'A')
+    return true;
+  else if (guess[0] == 'C' && guess[1] == 'G' && guess[2] == 'S')
+    return true;
+  else if (guess[0] == 'C' && guess[1] == 'O' && guess[2] == 'M')
+    return true;
+  else if (guess[0] == 'E' && guess[1] == 'P' && guess[2] == 'C')
+    return true;
+  else if (guess[0] == 'E' && guess[1] == 'V' && guess[2] == 'N')
+    return true;
+  else if (guess[0] == 'G' && guess[1] == 'S' && guess[2] == 'U')
+    return true;
+  else if (guess[0] == 'H' && guess[1] == 'A' && guess[2] == 'R')
+    return true;
+  else if (guess[0] == 'M' && guess[1] == 'C' && guess[2] == 'H')
+    return true;
+  else if (guess[0] == 'M' && guess[1] == 'O' && guess[2] == 'R')
+    return true;
+  else if (guess[0] == 'P' && guess[1] == 'H' && guess[2] == 'O')
+    return true;
+  else if (guess[0] == 'R' && guess[1] == 'K' && guess[2] == 'C')
+    return true;
+  else if (guess[0] == 'S' && guess[1] == 'A' && guess[2] == 'R')
+    return true;
+  else if (guess[0] == 'S' && guess[1] == 'C' && guess[2] == 'I')
+    return true;
+  else if (guess[0] == 'S' && guess[1] == 'H' && guess[2] == 'A')
+    return true;
+  else if (guess[0] == 'W' && guess[1] == 'E' && guess[2] == 'D')
+    return true;
+  else if (guess[0] == 'I' && guess[1] == 'N' && guess[2] == 'S')
+    return true;
+  else if (guess[0] == 'K' && guess[1] == 'C' && guess[2] == 'B')
+    return true;
+  else if (guess[0] == 'L' && guess[1] == 'A' && guess[2] == 'W')
+    return true;
+  else if (guess[0] == 'L' && guess[1] == 'E' && guess[2] == 'V')
+    return true;
+  //else if (guess[0] == 'S' && guess[1] == 'A' && guess[2] == 'R') sar is in here twice
+   // return true;
+   else
+    cout << "Invalid, not a building! " << endl;
     return false;
-  
-  string guessedBuilding;
-  guessedBuilding = guess[0] + guess[1] + guess[2];
-  
-  if (guessedBuilding == "ABG") 
-    return true;
-  else if (guessedBuilding == "ALB")
-    return true;
-  else if (guessedBuilding == "CAS")
-    return true;
-  else if (guessedBuilding == "CFA")
-    return true;
-  else if (guessedBuilding == "CGS")
-    return true;
-  else if (guessedBuilding == "COM")
-    return true;
-  else if (guessedBuilding == "EPC")
-    return true;
-  else if (guessedBuilding == "EVN")
-    return true;
-  else if (guessedBuilding == "GSU")
-    return true;
-  else if (guessedBuilding == "HAR")
-    return true;
-  else if (guessedBuilding == "MCH")
-    return true;
-  else if (guessedBuilding == "MOR")
-    return true;
-  else if (guessedBuilding == "PHO")
-    return true;
-  else if (guessedBuilding == "RKC")
-    return true;
-  else if (guessedBuilding == "SAR")
-    return true;
-  else if (guessedBuilding == "SCI")
-    return true;
-  else if (guessedBuilding == "SHA")
-    return true;
-  else if (guessedBuilding == "WED")
-    return true;
-  else if (guessedBuilding == "INS")
-    return true;
-  else if (guessedBuilding == "KCB")
-    return true;
-  else if (guessedBuilding == "LAW")
-    return true;
-  else if (guessedBuilding == "LEV")
-    return true;
-  else if (guessedBuilding == "SAR")
-    return true;
-  return false;
 }
 
-//this needs to pass in a for loop instead and it will pass the specific value and then yo want to use an or statement that will check all for correct numbers
-bool validNumber(char* guessedNumber)  {  
-  for (int i = 4; i < 7; i++)  {
-    if (guessedNumber[i] == 'B')
-      return true;
-    else if (guessedNumber[i] == '0')
-      return true;
-    else if (guessedNumber[i] == '1')
-      return true;
-    else if (guessedNumber[i] == '2')
-      return true;
-    else if (guessedNumber[i] == '3')
-      return true;
-    else if (guessedNumber[i] == '4')
-      return true;
-    else if (guessedNumber[i] == '5')
-      return true;
-    else if (guessedNumber[i] == '6')
-      return true;
-    else if (guessedNumber[i] == '7')
-      return true;
-    else if (guessedNumber[i] == '8')
-      return true;
-    else if (guessedNumber[i] == '9')
-      return true;
-    return false;
+bool validNumber(char* guessedNumber, int i)
+{
+  if (guessedNumber[i] == 'B' || guessedNumber[i] == '0' || guessedNumber[i] == '1' || guessedNumber[i] == '2' || guessedNumber[i] == '3' || guessedNumber[i] == '4' || guessedNumber[i] == '5' || guessedNumber[i] == '6' || guessedNumber[i] == '7' || guessedNumber[i] == '8' || guessedNumber[i] == '9' )
+  {
+    return true;
   }
-  
+  else
+    return false;
 }
 
-bool validRoomNumber(char* guess)  {
-  if (validNumber(guess[4]) == true && validNumber(guess[5]) == true && validNumber(guess[6]))
-    return true;
-  return false;
+bool validRoomNumber(char* guess)
+{
+  for(int i = 4; i < 7; i++)
+  {
+    if (validNumber(guess, i) == true)
+    {
+      continue;
+    }
+    else
+      cout << "Invalid, not a room number!" << endl;
+      return false;
+  }
+  return true;
 }
-*/
 
-//function that checks each of the letters and numbers and displays it in the accurate colors 
-//It passes the guessed answer and the real/correct answer
-void checkAns(char* guess, char* real)
+
+bool checkAns(char* guess, char* real)
 {
  //If the letter of the first 3 char is equal to any of the real guess first 3 char it will print the correct color else print it red
   
@@ -280,5 +260,10 @@ void checkAns(char* guess, char* real)
     cout << REDB << guess[6] << NC << endl;
   }
   
+  if (guess[0] == real[0] && guess[1] == real[1] && guess[2] == real[2] && guess[4] == real[4] && guess[5] == real[5] && guess[6] == real[6])
+  {
+    return true;
   }
-    //cout << endl << REDB " F " << GRNB " U " << YLWB " N " NC << endl;
+  else
+    return false;
+  }
