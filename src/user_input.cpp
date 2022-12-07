@@ -11,30 +11,27 @@ using namespace std;
 
 int main(){
     
+    //Creates random seed time
     srand(time(0));
     
-    RoomInfo* rooms_in_CAS[20];
-    MakeRooms(rooms_in_CAS);
+    RoomInfo* all_rooms[60]; //create array of pointers to objects of class type "RoomInfo"
+    MakeRooms(all_rooms); //create all RoomInfo objects and store in all_rooms
 
-    //Can uncomment this to make sure all the output in each object is correct
-    // for(int i = 0; i < 20; i++)
+    //this for loop is to make sure the objects are all created nicely
+    // for(int i = 0; i < 60; i++)
     // {
-    //     cout << "classroom: " << rooms_in_CAS[i]->classroom << endl;
-    //     cout << "link: " << rooms_in_CAS[i]->GetLink() << endl;
+    //     cout << "classroom: " << all_rooms[i]->classroom << endl;
+    //     cout << "link: " << all_rooms[i]->GetLink() << endl;
     // }
-    // if (rooms_in_CAS[0]->classroom[0] == 'C')
-    // {
-    //     cout << "classroom[0] IS " << rooms_in_CAS[0]->classroom[0] << endl;
-    // }
-    // else
-    //     cout << "not a match. " << rooms_in_CAS[0]->classroom[0] << " is not 'C'" << endl;
 
-    //Generate random number and get the link and classroom name
-    int random_index = rand() % 20;
-    string link = rooms_in_CAS[random_index]->GetLink();
-    //cout << "Random Index: " << random_index << endl;
-    char* reference_classroom = rooms_in_CAS[random_index]->classroom;
-    //cout << rooms_in_CAS[random_index]->classroom << endl;
+
+    //Generate random number and get the link and classroom name corresponding to that index
+    int random_index = rand() % 60; 
+    string link = all_rooms[random_index]->GetLink(); 
+    char* referenceClassroom = all_rooms[random_index]->classroom; //this is the character string to be compared with (aka the reference)
+    //next two lines are for error checking purposes; uncomment if necessary
+    // cout << "Random Index: " << random_index << endl;
+    // cout << all_rooms[random_index]->classroom << endl;
 
     //Open the link
     const char *openlink = link.c_str();

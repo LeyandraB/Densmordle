@@ -23,7 +23,7 @@ void MakeRooms(RoomInfo** rooms){ //can also add RoomInfo** rooms_ENG etc as arg
             building_chars[0] = letter_1;
             building_chars[1] = letter_2;
             building_chars[2] = letter_3;
-            rooms[i] = new RoomInfo(roomnum,building_chars,string_link);
+            rooms[i] = new RoomInfo(roomnum, building_chars, string_link);
             i++;
         }
     fin.close();
