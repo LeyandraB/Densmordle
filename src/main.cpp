@@ -77,8 +77,6 @@ int main()
       catch (Invalid_Input& except)
       {
           cout << "Invalid input - " << except.msg_ptr << endl;
-          cin.clear();
-          cin.ignore(10,'\n');
       }
        
     } while (check_ans_result == false);
