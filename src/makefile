@@ -1,11 +1,13 @@
 CC=g++ -std=c++11 -g
 
+END = -lWinmm
+
 OBJS= main.o RoomInfo.o MakeRooms.o CheckInput.o #continue to add as necessary
 
 default: Densmordle
 
 Densmordle: $(OBJS)
-	$(CC) -o Densmordle $(OBJS) 
+	$(CC) -o Densmordle $(OBJS) $(END)
 
 RoomInfo.o: RoomInfo.cpp RoomInfo.h
 	$(CC) -c RoomInfo.cpp -o RoomInfo.o
@@ -20,7 +22,7 @@ user_input: user_input.cpp RoomInfo.o MakeRooms.o
 	$(CC) -o user_input.exe user_input.cpp RoomInfo.o MakeRooms.o
 
 main: main.cpp RoomInfo.o MakeRooms.o CheckInput.o
-	$(CC) -o main.exe main.cpp RoomInfo.o MakeRooms.o CheckInput.o
+	$(CC) -o main.exe main.cpp RoomInfo.o MakeRooms.o CheckInput.o $(END)
 
 clean:
 	rm $(OBS) Densmordle *.exe

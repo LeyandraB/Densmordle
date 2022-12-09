@@ -2,6 +2,7 @@
 #include <ctime>
 #include <windows.h>
 #include <shellapi.h>
+#include <mmsystem.h> //for music
 
 #include "RoomInfo.h"
 #include "MakeRooms.h"
@@ -61,7 +62,8 @@ int main()
     } while (checkAns(guessedClassroom, referenceClassroom) == false);
 
     cout << "You won in " << numGuesses << " tries!" << endl; //Fix the tries
-  
+    PlaySound(TEXT("WonGame.wav"), NULL, SND_ALIAS | SND_APPLICATION); //plays WonGame music when you guess correctly
+    cout << "Would you like to Play Again?" << endl;
 
       return 0;
 }
