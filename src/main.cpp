@@ -30,9 +30,9 @@ int main()
     cout << "*********************************" << endl;
 
     cout << "Choose a game mode:" << endl;
-    cout << "  (r) Regular" << endl;
-    cout << "  (t) Timed" << endl;
-    cout << "  (e) Elimination" << endl << endl;
+    cout << "  (R) Regular" << endl;
+    cout << "  (T) Timed" << endl;
+    cout << "  (L) Limited" << endl << endl;
     cout << "Mode: ";
     //cin >> mode;
     
