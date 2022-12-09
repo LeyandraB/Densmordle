@@ -7,6 +7,7 @@
 #include "RoomInfo.h"
 #include "MakeRooms.h"
 #include "CheckInput.h"
+#include "InputHandling.h"
 
 using namespace std;
 
@@ -50,25 +51,37 @@ int main()
     ShellExecute(0, 0, openlink, 0, 0 , SW_SHOW ); //this line is okay, even though it says there's an error, it should compile
     //*****************************
 
+    bool check_ans_result = false;
     //**CHECK INPUT**//
     do 
     {
-        do 
-        {
-            cout << "Enter guess: ";
-            for (int i = 0; i < 8; i++)  
-            {
-                scanf("%c", &guessedClassroom[i]);
-            }        
-        } while (!validBuilding(guessedClassroom) && !validRoomNumber(guessedClassroom) || !validRoomNumber(guessedClassroom));  //Fix this when you put the and before the or it puts the building twice
-            numGuesses++;
-        /*
-        if (checkAns(guessedClassroom, referenceClassroom))
-            break;
-        else
-            continue;
-        */
-    } while (checkAns(guessedClassroom, referenceClassroom) == false);
+        try{
+          do 
+          {
+              cout << "Enter guess: ";
+              for (int i = 0; i < 8; i++)  
+              {
+                  scanf("%c", &guessedClassroom[i]);
+              }        
+          } while (!validBuilding(guessedClassroom) && !validRoomNumber(guessedClassroom) || !validRoomNumber(guessedClassroom));  //Fix this when you put the and before the or it puts the building twice
+              numGuesses++;
+          /*
+          if (checkAns(guessedClassroom, referenceClassroom))
+              break;
+          else
+              continue;
+          */
+          check_ans_result = checkAns(guessedClassroom, referenceClassroom);
+        }
+
+      catch (Invalid_Input& except)
+      {
+          cout << "Invalid input - " << except.msg_ptr << endl;
+          cin.clear();
+          cin.ignore(10,'\n');
+      }
+       
+    } while (check_ans_result == false);
 
     cout << "You won in " << numGuesses << " tries!" << endl; //Fix the tries
     PlaySound(TEXT("WonGame.wav"), NULL, SND_ALIAS | SND_APPLICATION); //plays WonGame music when you guess correctly

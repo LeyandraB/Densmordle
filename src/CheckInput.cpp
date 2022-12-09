@@ -1,4 +1,5 @@
 #include "CheckInput.h"
+#include "InputHandling.h"
 
 bool validBuilding(char* guess)
 {
@@ -49,7 +50,11 @@ bool validBuilding(char* guess)
   //else if (guess[0] == 'S' && guess[1] == 'A' && guess[2] == 'R') sar is in here twice
    // return true;
     else
+    {
+        throw Invalid_Input("Not a building");
         cout << "Invalid, not a building! " << endl;
+    }
+        
     return false;
 }
 
@@ -61,6 +66,7 @@ bool validNumber(char* guessedNumber, int i)
     }
     else
     {
+        throw Invalid_Input("Not a number");
         return false;
     }
 }
@@ -74,8 +80,11 @@ bool validRoomNumber(char* guess)
             continue;
         }
         else
+        {
+            throw Invalid_Input("Not a room number!");
             cout << "Invalid, not a room number!" << endl;
             return false;
+        }
     }
     return true;
 }
