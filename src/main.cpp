@@ -21,11 +21,20 @@ int main()
     //Print a welcome message and instructions
     cout << "*********************************" << endl;
     cout << "Welcome to Densmordle!" << endl << endl;
-    cout << "It's time to guess what BU classroom the image is taken in." << endl;
-    cout << "When you enter your guess, please enter a space between the building name and classroom number." << endl;
-    cout << "For example, type 'CAS 100', not 'CAS100'." << endl << endl;
-    cout << "Good luck!" << endl;
+    cout << "Instructions:" << endl;
+    cout << "  It's time to guess what BU classroom the image is taken in." << endl;
+    cout << "  When you enter your guess, please enter a space between the building name and classroom number." << endl;
+    cout << "  For example, type 'CAS 100', not 'CAS100'." << endl << endl;
+    //cout << "  You can type 'q', anytime to quite the game." << endl;
+    cout << "  Good luck!" << endl << endl;
     cout << "*********************************" << endl;
+
+    cout << "Chose a game mode:" << endl;
+    cout << "  (r) Regular" << endl;
+    cout << "  (t) Timed" << endl;
+    cout << "  (e) Elimination" << endl << endl;
+    cout << "Mode: ";
+    //cin >> mode;
     
     //**BUILD CLASSROOMS AND GET A RANDOM ONE**//
     //Creates random seed time
