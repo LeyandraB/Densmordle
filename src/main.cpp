@@ -29,7 +29,7 @@ int main()
     cout << "  Good luck!" << endl << endl;
     cout << "*********************************" << endl;
 
-    cout << "Chose a game mode:" << endl;
+    cout << "Choose a game mode:" << endl;
     cout << "  (r) Regular" << endl;
     cout << "  (t) Timed" << endl;
     cout << "  (e) Elimination" << endl << endl;
