@@ -40,9 +40,9 @@ int main()
     while (play)
     {
         cout << "Choose a game mode:" << endl;
-        cout << "  (R) Regular" << endl;
-        cout << "  (T) Timed" << endl;
-        cout << "  (L) Limited" << endl;
+        cout << "   (R) Regular" << endl;
+        cout << "   (T) Timed" << endl;
+        cout << "   (L) Limited" << endl;
         cout << "or (Q) to quit" << endl << endl;
         cout << "Mode: ";
         try    
@@ -61,7 +61,10 @@ int main()
                     break;
                 case 'T':
                 {
+                    score = 0;
                     TimedMode(all_rooms, score);
+                    cout << "In one minute, you guessed " << score << " rooms correctly!" << endl << endl;
+                    display_highest_score(score);
                 }
                     break;
                 case 'L':

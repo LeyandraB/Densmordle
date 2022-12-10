@@ -13,6 +13,7 @@
 #include "GenerateRandomClassroom.h"
 #include "CheckInput.h"
 #include "InputHandling.h"
+#include "highestscore.h"
 
 void TimedMode(RoomInfo** , unsigned int&);
 void minute_timer(bool& time_over);

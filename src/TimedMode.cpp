@@ -7,17 +7,19 @@ void minute_timer(bool &time_over) {
     {
         this_thread::sleep_for(std::chrono::seconds(1));
     }
-    cout << "Game Over: one minute has passed."<<endl;
+    cout << "Time's up! One minute has passed. Enter a final guess: " << endl;
     time_over = true;
+    while(getchar()!= '\n')
+        continue;
 }
 
 void TimedMode(RoomInfo** all_rooms, unsigned int& score)
 {
 
-    char* referenceClassroom = GenerateRandomClassroom(all_rooms);
-    cout << "Room: ";
-    for(int i = 0; i < 8; i++)
-        cout << referenceClassroom[i];
+    
+    // cout << "Room: ";
+    // for(int i = 0; i < 8; i++)
+    //     cout << referenceClassroom[i];
     bool check_ans_result = false;
     int numGuesses = 0;
 
@@ -27,29 +29,38 @@ void TimedMode(RoomInfo** all_rooms, unsigned int& score)
     char* guessedClassroom;
     //**CHECK INPUT**//
  
-    do {
-        do
+    do
     {
-        try
+        char* referenceClassroom = GenerateRandomClassroom(all_rooms);
+        do
         {
-            do
+            try
             {
-                cout << "Enter guess: ";
-                for (int i = 0; i < 8; i++)
+                do
                 {
-                    scanf("%c", &guessedClassroom[i]);
-                }
-            } while (!validBuilding(guessedClassroom) && !validRoomNumber(guessedClassroom) || !validRoomNumber(guessedClassroom));  //Fix this when you put the and before the or it puts the building twice
-            numGuesses++;
-            check_ans_result = checkAns(guessedClassroom, referenceClassroom);
-        }
-        catch (Invalid_Input& except)
+                    cout << "Enter guess: ";
+                    for (int i = 0; i < 8; i++)
+                    {
+                        scanf("%c", &guessedClassroom[i]);
+                    }
+                } while (!time_over && (!validBuilding(guessedClassroom) && !validRoomNumber(guessedClassroom) || !validRoomNumber(guessedClassroom)));  //Fix this when you put the and before the or it puts the building twice
+                numGuesses++;
+                check_ans_result = checkAns(guessedClassroom, referenceClassroom);
+            }
+            catch (Invalid_Input& except)
+            {
+                cout << "Invalid input - " << except.msg_ptr << endl;
+                while(getchar()!= '\n')
+                    continue;
+                //cin.getline();
+            }
+        } while (check_ans_result == false && !time_over);
+        if(check_ans_result)
         {
-            cout << "Invalid input - " << except.msg_ptr << endl;
+            score += 1;
+            cout << "You got it in " << numGuesses << " tries!" << endl; //Fix the tries
+            numGuesses = 0;
+            PlaySound(TEXT("WonGame.wav"), NULL, SND_ASYNC); //plays WonGame music when you guess correctly
         }
-    } while (check_ans_result == false);
-    score += 1;
-    cout << "You won in " << numGuesses << " tries!" << endl; //Fix the tries
-    PlaySound(TEXT("WonGame.wav"), NULL, SND_ALIAS | SND_APPLICATION); //plays WonGame music when you guess correctly
-}while(!time_over);
+    }while(!time_over);
 }

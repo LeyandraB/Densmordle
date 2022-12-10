@@ -18,6 +18,5 @@ char* GenerateRandomClassroom(RoomInfo** all_rooms)
     const char *openlink = link.c_str();
     ShellExecute(0, 0, openlink, 0, 0 , SW_SHOW ); //this line is fine, even though it says there's an error, it should compile
     //*****************************
-    cout << "Random classroom Generated" << endl;
     return referenceClassroom;
 }

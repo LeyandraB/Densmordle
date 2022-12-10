@@ -29,7 +29,7 @@ void RegularMode(RoomInfo** all_rooms)
         }
     } while (check_ans_result == false);
     
-    PlaySound(TEXT("WonGame.wav"), NULL, SND_ALIAS | SND_APPLICATION); //plays WonGame music when you guess correctly
+    PlaySound(TEXT("WonGame.wav"), NULL, SND_ASYNC); //plays WonGame music when you guess correctly
     cout << "You won in " << numGuesses << " tries!" << endl;
     
 

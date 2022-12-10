@@ -9,7 +9,7 @@ void display_highest_score(unsigned int &score) {
     fi.open("highestscore.txt");
 
     if (!fi.is_open())
-    std::cout<<"error, input file could not be opened";
+    std::cout<<"error, input file could not be opened" << std::endl;
     
     int n;
     if(fi >> n){
@@ -20,7 +20,7 @@ void display_highest_score(unsigned int &score) {
         std::ofstream fo;
         fo.open("highestscore.txt",std::ofstream::out | std::ofstream::trunc);
         if (!fo.is_open())
-            std::cout<<"error, output file could not be opened";
+            std::cout<<"error, output file could not be opened" << std::endl;
         fo << score;
         fo.close();
     }
@@ -36,7 +36,7 @@ void display_highest_score(unsigned int &score) {
         std::ofstream fo;
         fo.open("highestscore.txt",std::ofstream::out | std::ofstream::trunc);
         if (!fo.is_open())
-            std::cout<<"error, output file could not be opened";
+            std::cout<<"error, output file could not be opened" << std::endl;
         fo << score;
         fo.close();
     }
