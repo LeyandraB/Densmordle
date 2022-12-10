@@ -13,6 +13,6 @@
 #include "CheckInput.h"
 #include "InputHandling.h"
 
-void TimedMode(RoomInfo**);
+void TimedMode(RoomInfo** ,unsigned int&);
 
 #endif
