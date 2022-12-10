@@ -10,6 +10,7 @@
 #include "InputHandling.h"
 #include "RegularMode.h"
 #include "TimedMode.h"
+#include "LimitedMode.h"
 #include "highestscore.h"
 
 using namespace std;
@@ -79,7 +80,7 @@ int main()
                     break;
                 case 'L':
                 {   
-                    //LimitedMode()
+                    LimitedMode(all_rooms);
                 }
                     break;
                 case 'Q':

@@ -2,7 +2,7 @@ CC=g++ -std=c++11 -g
 
 END = -lWinmm
 
-OBJS= main.o RoomInfo.o MakeRooms.o CheckInput.o InputHandling.h GenerateRandomClassroom.o RegularMode.o TimedMode.o highestscore.o #continue to add as necessary
+OBJS= main.o RoomInfo.o MakeRooms.o CheckInput.o InputHandling.h GenerateRandomClassroom.o RegularMode.o TimedMode.o LimitedMode.o highestscore.o #continue to add as necessary
 
 default: Densmordle
 
@@ -36,8 +36,8 @@ LimitedMode.o: LimitedMode.cpp LimitedMode.h
 highestscore.o: highestscore.cpp highestscore.h
 	$(CC) -c highestscore.cpp -o highestscore.o
 
-main: main.cpp RoomInfo.o MakeRooms.o CheckInput.o InputHandling.h GenerateRandomClassroom.o RegularMode.o TimedMode.o highestscore.o
-	$(CC) -o main.exe main.cpp RoomInfo.o MakeRooms.o CheckInput.o InputHandling.h GenerateRandomClassroom.o RegularMode.o TimedMode.o highestscore.o $(END)
+main: main.cpp RoomInfo.o MakeRooms.o CheckInput.o InputHandling.h GenerateRandomClassroom.o RegularMode.o TimedMode.o LimitedMode.o highestscore.o
+	$(CC) -o main.exe main.cpp RoomInfo.o MakeRooms.o CheckInput.o InputHandling.h GenerateRandomClassroom.o RegularMode.o TimedMode.o LimitedMode.o highestscore.o $(END)
 
 clean:
 	rm $(OBS) Densmordle *.exe
