@@ -2,19 +2,17 @@
 
 void RegularMode(RoomInfo** all_rooms)
 {
-    char* referenceClassroom = GenerateRandomClassroom(all_rooms);
-    // cout << "Room: ";
-    // for(int i = 0; i < 8; i++)
-    //     cout << referenceClassroom[i];
+    //initialized variables should for the most part be the same in all modes:
+    char* referenceClassroom = GenerateRandomClassroom(all_rooms); //generates random classroom and assigns to the variable referenceClassroom
     bool check_ans_result = false;
     int numGuesses = 0;
     char* guessedClassroom;
     //**CHECK INPUT**//
     do 
     {
-        try
+        try //followed by catch later
         {
-            do 
+            do //while guesses are invalid
             {
                 cout << "Enter guess: ";
                 for (int i = 0; i < 8; i++)  
@@ -32,7 +30,7 @@ void RegularMode(RoomInfo** all_rooms)
     } while (check_ans_result == false);
     
     PlaySound(TEXT("WonGame.wav"), NULL, SND_ALIAS | SND_APPLICATION); //plays WonGame music when you guess correctly
-    cout << "You won in " << numGuesses << " tries!" << endl; //Fix the tries
+    cout << "You won in " << numGuesses << " tries!" << endl;
     
 
 }
