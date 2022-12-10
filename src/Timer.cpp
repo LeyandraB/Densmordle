@@ -5,7 +5,7 @@
 void minute_timer() {
     for(int i=0;i<60;i++)
     {
-        std::this_thread::sleep_for(std::chrono::seconds(1));
+        boost::this_thread::sleep_for(std::chrono::seconds(1));
     }
 }
 int main ()
