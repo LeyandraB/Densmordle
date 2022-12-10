@@ -3,16 +3,16 @@
 
 using namespace std;
 
-void minute_timer() {
+void minute_timer(bool& time_over) {
     for(int i=0;i<60;i++)
     {
         boost::this_thread::sleep_for(std::chrono::seconds(1));
     }
-    cout << "Game Over: one minute has passed"<<endl;
-    exit(0);
+    cout << "Game Over: one minute has passed."<<endl;
+    time_over = true;
 }
 
-void TimedMode(RoomInfo** all_rooms)
+void TimedMode(RoomInfo** all_rooms, unsigned int& score)
 {
 
     char* referenceClassroom = GenerateRandomClassroom(all_rooms);
@@ -22,11 +22,13 @@ void TimedMode(RoomInfo** all_rooms)
     bool check_ans_result = false;
     int numGuesses = 0;
 
-
+    bool time_over = false;
     auto future = std::async(minute_timer);
     char* guessedClassroom;
     //**CHECK INPUT**//
-    do
+ 
+    do {
+        do
     {
         try
         {
@@ -46,8 +48,8 @@ void TimedMode(RoomInfo** all_rooms)
             cout << "Invalid input - " << except.msg_ptr << endl;
         }
     } while (check_ans_result == false);
-
+    score += 1;
     cout << "You won in " << numGuesses << " tries!" << endl; //Fix the tries
     PlaySound(TEXT("WonGame.wav"), NULL, SND_ALIAS | SND_APPLICATION); //plays WonGame music when you guess correctly
-
+}while(!time_over);
 }
