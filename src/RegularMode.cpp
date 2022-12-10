@@ -3,9 +3,9 @@
 void RegularMode(RoomInfo** all_rooms)
 {
     char* referenceClassroom = GenerateRandomClassroom(all_rooms);
-    cout << "Room: ";
-    for(int i = 0; i < 8; i++)
-        cout << referenceClassroom[i];
+    // cout << "Room: ";
+    // for(int i = 0; i < 8; i++)
+    //     cout << referenceClassroom[i];
     bool check_ans_result = false;
     int numGuesses = 0;
     char* guessedClassroom;
@@ -30,8 +30,9 @@ void RegularMode(RoomInfo** all_rooms)
             cout << "Invalid input - " << except.msg_ptr << endl;
         }
     } while (check_ans_result == false);
-
-    cout << "You won in " << numGuesses << " tries!" << endl; //Fix the tries
+    
     PlaySound(TEXT("WonGame.wav"), NULL, SND_ALIAS | SND_APPLICATION); //plays WonGame music when you guess correctly
+    cout << "You won in " << numGuesses << " tries!" << endl; //Fix the tries
+    
 
 }

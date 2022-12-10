@@ -12,5 +12,11 @@
 #include "InputHandling.h"
 
 void RegularMode(RoomInfo**);
+/*
+    RegularMode lets you guess the classroom until you get it, and tells you how many
+    tries it took you to get it right. The RoomInfo** all_rooms is passed into the function
+    So it can be used to generate a random classroom
+
+*/
 
 #endif

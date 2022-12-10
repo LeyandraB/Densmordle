@@ -1,8 +1,11 @@
 #include "GenerateRandomClassroom.h"
 
+/*
+    This function gets a random classroom from the array of all_rooms and returns the
+    name of the classroom as type char*
+*/
 char* GenerateRandomClassroom(RoomInfo** all_rooms)
 {
-//**BUILD CLASSROOMS AND GET A RANDOM ONE**//
     //Creates random seed time
     srand(time(0));
     

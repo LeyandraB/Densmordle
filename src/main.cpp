@@ -32,45 +32,56 @@ int main()
     cout << "*********************************" << endl;
 
     char mode;
-    cout << "Choose a game mode:" << endl;
-    cout << "  (R) Regular" << endl;
-    cout << "  (T) Timed" << endl;
-    cout << "  (L) Limited" << endl << endl;
-    cout << "Mode: ";
-    try    
+    bool play = true;
+
+    while (play)
     {
-        if(!(cin >> mode))
+        cout << "Choose a game mode:" << endl;
+        cout << "  (R) Regular" << endl;
+        cout << "  (T) Timed" << endl;
+        cout << "  (L) Limited" << endl;
+        cout << "or (Q) to quit" << endl << endl;
+        cout << "Mode: ";
+        try    
         {
-            throw Invalid_Input("Not a mode");
+            if(!(cin >> mode))
+            {
+                throw Invalid_Input("Not a mode");
+            }
+            getchar();
+            switch (mode)
+            {
+                case 'R':
+                {
+                    RegularMode(all_rooms);
+                }
+                    break;
+                case 'T':
+                {
+                    //TimedMode();
+                }
+                    break;
+                case 'L':
+                {   
+                    //LimitedMode()
+                }
+                    break;
+                case 'Q':
+                {
+                    play = false;
+                    break;
+                }
+                default:
+                    throw Invalid_Input("Not a valid command or mode");
+                    break;
+            }
         }
-        getchar();
-        switch (mode)
+        catch (Invalid_Input& except)
         {
-            case 'R':
-            {
-                RegularMode(all_rooms);
-            }
-                break;
-            case 'T':
-            {
-                //TimedMode();
-            }
-                break;
-            case 'L':
-            {   
-                //LimitedMode()
-            }
-                break;
-            default:
-                throw Invalid_Input("Not a valid mode");
-                break;
+            cout << "Invalid input - " << except.msg_ptr << endl;
+            cin.clear();
+            cin.ignore(10,'\n');
         }
-    }
-    catch (Invalid_Input& except)
-    {
-        cout << "Invalid input - " << except.msg_ptr << endl;
-        cin.clear();
-        cin.ignore(10,'\n');
     }
     
 /*
@@ -114,7 +125,6 @@ int main()
 
     cout << "You won in " << numGuesses << " tries!" << endl; //Fix the tries
     PlaySound(TEXT("WonGame.wav"), NULL, SND_ALIAS | SND_APPLICATION); //plays WonGame music when you guess correctly
-    //cout << "Pick a Mode, or type 'Q' to exit: " << endl;
 */
       return 0;
 }

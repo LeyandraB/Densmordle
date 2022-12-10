@@ -13,5 +13,9 @@
 #include "InputHandling.h"
 
 char* GenerateRandomClassroom(RoomInfo** all_rooms);
+/*
+    This function gets a random classroom from the array of all_rooms and returns the
+    name of the classroom as type char*
+*/
 
 #endif
