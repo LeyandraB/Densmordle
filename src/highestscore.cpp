@@ -1,6 +1,7 @@
 
 #include <iostream>
 #include <fstream>
+#include "highestscore.h"
 
 
 void display_highest_score(int &score) {
