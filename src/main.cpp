@@ -9,6 +9,7 @@
 #include "CheckInput.h"
 #include "InputHandling.h"
 #include "RegularMode.h"
+#include "highestscore.h"
 
 using namespace std;
 
