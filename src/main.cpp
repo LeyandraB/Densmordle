@@ -33,7 +33,7 @@ int main()
 
     char mode;
     bool play = true;
-    unsigned int score;
+    unsigned int score = 0;
 
     while (play)
     {
