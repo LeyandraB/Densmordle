@@ -59,7 +59,7 @@ int main()
                     break;
                 case 'T':
                 {
-                    //TimedMode();
+                    TimedMode(all_rooms, score);
                 }
                     break;
                 case 'L':
