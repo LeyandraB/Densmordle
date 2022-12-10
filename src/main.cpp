@@ -34,6 +34,10 @@ int main()
     cout << "  (T) - Timed Mode: you have 1 minute to guess as many classrooms as you can" << endl;
     cout << "  (L) - Limited Mode: you have 6 tries to guess the classroom correctly" << endl;
     cout << "When in Mode selection, you can also quit the game, by typing 'Q'." << endl << endl;
+    cout << "Helpful Tips:" << endl;
+    cout << "  After you enter a classroom, if it is a valid guess, you will see if each character you" << endl;
+    cout << "  entered is in the correct place (green), in the incorrect place but in the solution" << endl;
+    cout << "  (yellow), or if it is not in the solution (red)." << endl << endl;
     cout << "Good luck!" << endl << endl;
     cout << "*********************************" << endl;
 
