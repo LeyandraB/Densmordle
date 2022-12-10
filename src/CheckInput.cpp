@@ -164,6 +164,10 @@ bool checkAns(char* guess, char* real)
   //If the letter of the last 3 char is equal to any of the real guess last 3 char it will print the correct color else print it red
 
   //fourth char check
+
+  // What I think could work so if all of them are right then it shoots it out green and return true? but if only two of the numbers are true then you print that and break the loop but i think if it continues it will double write it but maybe if i put like & the two number dont equal the top ones 
+
+  
 if (guess[4] == real[4] && guess[5] == real[5] && guess[6] == real[6])
 {
   if (guess[0] == real[0] && guess[1] == real[1] && guess[2] == real[2] && guess[4] == real[4] && guess[5] == real[5] && guess[6] == real[6])
@@ -187,9 +191,9 @@ else if (guess[4] == real[4] && guess[6] == real[6])
 }
 else if(guess[4] == real[4] && guess[5] == real[5] )
 {
-  if (guess[6] == guess[5] || guess[6] == guess[5])
+  if (guess[6] == guess[4] || guess[6] == guess[5])
   {
-  cout << GRNB << guess[4] << YLWB << guess[5] << GRNB << guess[6] << NC << endl; 
+  cout << GRNB << guess[4] << GRNB << guess[5] << YLWB << guess[6] << NC << endl; 
   return false;
   }
 }
@@ -201,7 +205,9 @@ else if(guess[5] == real[5] && guess[6] == real[6])
      return false;
   }
 }
- 
+
+
+  
   if(guess[4] == real[4] || guess[4] == real[5] || guess[4] == real[6])
   {
     if(guess[4] == real[4])
@@ -225,13 +231,13 @@ else if(guess[5] == real[5] && guess[6] == real[6])
   //fifth char check
   if(guess[5] == real[4] || guess[5] == real[5] || guess[5] == real[6])
   {
-    if(guess[5] == real[5])
-    {
-      cout << GRNB << guess[5];
-    }
-    else if (guess[5] == real[4])
+    if(guess[5] == real[4])
     {
       cout << YLWB << guess[5];
+    }
+    else if (guess[5] == real[5])
+    {
+      cout << GRNB << guess[5];
     }
     else if(guess[5] == real[6])
     {
@@ -246,17 +252,17 @@ else if(guess[5] == real[5] && guess[6] == real[6])
 //sixth char check
    if(guess[6] == real[4] || guess[6] == real[5] || guess[6] == real[6])
   {
-    if(guess[6] == real[6])
+    if(guess[6] == real[4])
     {
-      cout << GRNB << guess[6] << NC << endl;
+      cout << YLWB << guess[6] << NC << endl;
     }
     else if (guess[6] == real[5])
     {
       cout << YLWB << guess[6] << NC << endl;
     }
-    else if(guess[6] == real[4])
+    else if(guess[6] == real[6])
     {
-      cout << YLWB << guess[6] << NC << endl;
+      cout << GRNB << guess[6] << NC << endl;
     }
   }
   else if (guess[6] != real[4] && guess[6] != real[5] && guess[6] != real[6])
@@ -271,3 +277,4 @@ else if(guess[5] == real[5] && guess[6] == real[6])
   else
     return false;
   }
+
