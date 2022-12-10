@@ -100,10 +100,7 @@ int main()
             cin.ignore(10,'\n');
         }
     }
-    if(score!=0)
-    {
-        display_highest_score(score);
-    }
+   
     //possiblity to do something before we return 0
       return 0;
 }
