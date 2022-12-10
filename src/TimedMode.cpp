@@ -3,7 +3,7 @@
 using namespace std;
 
 void minute_timer(bool &time_over) {
-    for(int i=0;i<60;i++)
+    for(int i=0;i<30;i++)
     {
         this_thread::sleep_for(std::chrono::seconds(1));
     }
