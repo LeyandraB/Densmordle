@@ -7,6 +7,7 @@
 #include <chrono>
 #include <iostream>
 #include <future>
+#include <thread>
 #include "RoomInfo.h"
 #include "MakeRooms.h"
 #include "GenerateRandomClassroom.h"
