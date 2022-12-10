@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void minute_timer(bool& time_over) {
+void minute_timer() {
     for(int i=0;i<60;i++)
     {
         boost::this_thread::sleep_for(std::chrono::seconds(1));
