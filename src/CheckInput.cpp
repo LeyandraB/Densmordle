@@ -225,13 +225,13 @@ else if(guess[5] == real[5] && guess[6] == real[6])
   //fifth char check
   if(guess[5] == real[4] || guess[5] == real[5] || guess[5] == real[6])
   {
-    if(guess[5] == real[4])
-    {
-      cout << YLWB << guess[5];
-    }
-    else if (guess[5] == real[5])
+    if(guess[5] == real[5])
     {
       cout << GRNB << guess[5];
+    }
+    else if (guess[5] == real[4])
+    {
+      cout << YLWB << guess[5];
     }
     else if(guess[5] == real[6])
     {
@@ -246,17 +246,17 @@ else if(guess[5] == real[5] && guess[6] == real[6])
 //sixth char check
    if(guess[6] == real[4] || guess[6] == real[5] || guess[6] == real[6])
   {
-    if(guess[6] == real[4])
+    if(guess[6] == real[6])
     {
-      cout << YLWB << guess[6] << NC << endl;
+      cout << GRNB << guess[6] << NC << endl;
     }
     else if (guess[6] == real[5])
     {
       cout << YLWB << guess[6] << NC << endl;
     }
-    else if(guess[6] == real[6])
+    else if(guess[6] == real[4])
     {
-      cout << GRNB << guess[6] << NC << endl;
+      cout << YLWB << guess[6] << NC << endl;
     }
   }
   else if (guess[6] != real[4] && guess[6] != real[5] && guess[6] != real[6])
