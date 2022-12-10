@@ -30,6 +30,9 @@ RegularMode.o: RegularMode.cpp RegularMode.h
 TimedMode.o: TimedMode.cpp TimedMode.h
 	$(CC) -c TimedMode.cpp -o TimedMode.o
 
+LimitedMode.o: LimitedMode.cpp LimitedMode.h
+	$(CC) -c LimitedMode.cpp -o LimitedMode.o
+
 highestscore.o: highestscore.cpp highestscore.h
 	$(CC) -c highestscore.cpp -o highestscore.o
 

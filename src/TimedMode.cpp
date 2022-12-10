@@ -15,11 +15,6 @@ void minute_timer(bool &time_over) {
 
 void TimedMode(RoomInfo** all_rooms, unsigned int& score)
 {
-
-    
-    // cout << "Room: ";
-    // for(int i = 0; i < 8; i++)
-    //     cout << referenceClassroom[i];
     bool check_ans_result = false;
     int numGuesses = 0;
 
@@ -28,7 +23,7 @@ void TimedMode(RoomInfo** all_rooms, unsigned int& score)
     //auto future = std::async(std::launch::async, minute_timer, time_over); /**/
     char* guessedClassroom;
     //**CHECK INPUT**//
- 
+    cout << "Timer started. You have 1 minute..." << endl;
     do
     {
         char* referenceClassroom = GenerateRandomClassroom(all_rooms);
@@ -61,6 +56,7 @@ void TimedMode(RoomInfo** all_rooms, unsigned int& score)
             cout << "You got it in " << numGuesses << " tries!" << endl; //Fix the tries
             numGuesses = 0;
             PlaySound(TEXT("WonGame.wav"), NULL, SND_ASYNC); //plays WonGame music when you guess correctly
+            check_ans_result = false;
         }
     }while(!time_over);
 }

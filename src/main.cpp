@@ -26,11 +26,15 @@ int main()
     cout << "*********************************" << endl;
     cout << "Welcome to Densmordle!" << endl << endl;
     cout << "Instructions:" << endl;
-    cout << "  It's time to guess what BU classroom the image is taken in." << endl;
+    cout << "  It's like Wordle...but instead you guess the BU classroom from the picture shown!" << endl;
     cout << "  When you enter your guess, please enter a space between the building name and classroom number." << endl;
     cout << "  For example, type 'CAS 100', not 'CAS100'." << endl << endl;
-    //cout << "  You can type 'q', anytime to quite the game." << endl;
-    cout << "  Good luck!" << endl << endl;
+    cout << "You can choose 3 modes to play:" << endl;
+    cout << "  (R) - Regular Mode: you have unlimited tries and unlimited time to guess the classroom" << endl;
+    cout << "  (T) - Timed Mode: you have 1 minute to guess as many classrooms as you can" << endl;
+    cout << "  (L) - Limited Mode: you have 6 tries to guess the classroom correctly" << endl;
+    cout << "When in Mode selection, you can also quit the game, by typing 'Q'." << endl << endl;
+    cout << "Good luck!" << endl << endl;
     cout << "*********************************" << endl;
 
     char mode;
@@ -50,8 +54,10 @@ int main()
             if(!(cin >> mode))
             {
                 throw Invalid_Input("Not a mode");
+                //cin.ignore();
             }
-            getchar();
+            while(getchar()!='\n')
+                continue;
             switch (mode)
             {
                 case 'R':
@@ -89,7 +95,10 @@ int main()
             cin.ignore(10,'\n');
         }
     }
-    display_highest_score(score);
+    if(score!=0)
+    {
+        display_highest_score(score);
+    }
     //possiblity to do something before we return 0
       return 0;
 }
