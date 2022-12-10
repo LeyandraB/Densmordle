@@ -7,7 +7,7 @@ using namespace std;
 void minute_timer() {
     for(int i=0;i<60;i++)
     {
-        boost::this_thread::sleep_for(std::chrono::seconds(1));
+        std::this_thread::sleep_for(std::chrono::seconds(1));
     }
     cout << "Game Over: one minute has passed."<<endl;
     time_over = true;
