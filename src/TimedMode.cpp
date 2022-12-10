@@ -59,5 +59,10 @@ void TimedMode(RoomInfo** all_rooms, unsigned int& score)
             check_ans_result = false;
         }
     }while(!time_over);
+    
+     if(score!=0)
+    {
+        display_highest_score(score);
+    }
    
 }
