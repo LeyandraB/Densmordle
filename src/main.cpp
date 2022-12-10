@@ -10,6 +10,7 @@
 #include "InputHandling.h"
 #include "RegularMode.h"
 #include "highestscore.h"
+#include "TimedMode.h"
 
 using namespace std;
 
