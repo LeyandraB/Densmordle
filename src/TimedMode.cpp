@@ -12,7 +12,7 @@ void minute_timer() {
     exit(0);
 }
 
-void LimitedMode(RoomInfo** all_rooms)
+void TimedMode(RoomInfo** all_rooms)
 {
 
     char* referenceClassroom = GenerateRandomClassroom(all_rooms);
