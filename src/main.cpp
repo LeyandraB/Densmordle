@@ -33,6 +33,7 @@ int main()
 
     char mode;
     bool play = true;
+    unsigned int score;
 
     while (play)
     {
@@ -83,7 +84,7 @@ int main()
             cin.ignore(10,'\n');
         }
     }
-    
+    display_highest_score(score);
     //possiblity to do something before we return 0
       return 0;
 }
