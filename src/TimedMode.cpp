@@ -9,7 +9,6 @@ void minute_timer(bool &time_over) {
     }
     cout << "Game Over: one minute has passed."<<endl;
     time_over = true;
-    //return time_over;
 }
 
 void TimedMode(RoomInfo** all_rooms, unsigned int& score)
