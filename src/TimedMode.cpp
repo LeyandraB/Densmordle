@@ -1,15 +1,15 @@
 #include "TimedMode.h"
 
-
 using namespace std;
 
-void minute_timer(bool& time_over) {
+void minute_timer(bool &time_over) {
     for(int i=0;i<60;i++)
     {
-        boost::this_thread::sleep_for(std::chrono::seconds(1));
+        this_thread::sleep_for(std::chrono::seconds(1));
     }
     cout << "Game Over: one minute has passed."<<endl;
     time_over = true;
+    //return time_over;
 }
 
 void TimedMode(RoomInfo** all_rooms, unsigned int& score)
@@ -23,7 +23,8 @@ void TimedMode(RoomInfo** all_rooms, unsigned int& score)
     int numGuesses = 0;
 
     bool time_over = false;
-    auto future = std::async(minute_timer);
+    auto f = std::async(std::launch::async, [&time_over]{ minute_timer(time_over); });
+    //auto future = std::async(std::launch::async, minute_timer, time_over); /**/
     char* guessedClassroom;
     //**CHECK INPUT**//
  

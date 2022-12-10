@@ -4,7 +4,7 @@
 #include "highestscore.h"
 
 
-void display_highest_score(int &score) {
+void display_highest_score(unsigned int &score) {
     std::ifstream fi;
     fi.open("highestscore.txt");
 

@@ -1,1 +1,1 @@
-void display_highest_score(int &score);
+void display_highest_score(unsigned int &score);

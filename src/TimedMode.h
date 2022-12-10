@@ -7,12 +7,13 @@
 #include <chrono>
 #include <iostream>
 #include <future>
+#include <thread>
 #include "RoomInfo.h"
 #include "MakeRooms.h"
 #include "GenerateRandomClassroom.h"
 #include "CheckInput.h"
 #include "InputHandling.h"
 
-void TimedMode(RoomInfo** ,unsigned int&);
-
+void TimedMode(RoomInfo** , unsigned int&);
+void minute_timer(bool& time_over);
 #endif
