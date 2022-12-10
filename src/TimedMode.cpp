@@ -51,4 +51,3 @@ void TimedMode(RoomInfo** all_rooms)
     PlaySound(TEXT("WonGame.wav"), NULL, SND_ALIAS | SND_APPLICATION); //plays WonGame music when you guess correctly
 
 }
-~                                                                                                  

@@ -27,6 +27,9 @@ user_input: user_input.cpp RoomInfo.o MakeRooms.o
 RegularMode.o: RegularMode.cpp RegularMode.h
 	$(CC) -c RegularMode.cpp -o RegularMode.o
 
+TimedMode.o: TimedMode.cpp TimedMode.h
+	$(CC) -c TimedMode.cpp -o TimedMode.o
+
 main: main.cpp RoomInfo.o MakeRooms.o CheckInput.o InputHandling.h GenerateRandomClassroom.o RegularMode.o
 	$(CC) -o main.exe main.cpp RoomInfo.o MakeRooms.o CheckInput.o InputHandling.h GenerateRandomClassroom.o RegularMode.o $(END)
 
