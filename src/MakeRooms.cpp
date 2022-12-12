@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void MakeRooms(RoomInfo** rooms){ //can also add RoomInfo** rooms_ENG etc as arguments
+void MakeRooms(RoomInfo** rooms){ 
     char building_chars[] = {'C','A','S'};
     char roomnum[] = {'1', '0', '3'};
     char digit_1;
@@ -27,5 +27,5 @@ void MakeRooms(RoomInfo** rooms){ //can also add RoomInfo** rooms_ENG etc as arg
             i++;
         }
     fin.close();
-    //create rooms in other buildings
+   
     }
