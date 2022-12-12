@@ -10,7 +10,7 @@ char* GenerateRandomClassroom(RoomInfo** all_rooms)
     srand(time(0));
     
     //Generate random number and get the link and classroom name corresponding to that index
-    int random_index = rand() % 60; 
+    int random_index = rand() % 61; 
     string link = all_rooms[random_index]->GetLink(); //link to the picture of the classroom
     char* referenceClassroom = all_rooms[random_index]->classroom; //this is the character string to be compared with (aka the reference)
 

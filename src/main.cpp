@@ -20,7 +20,7 @@ int main()
     int numGuesses = 0;
     char* guessedClassroom = new char[8];
 
-    RoomInfo* all_rooms[60]; //create array of pointers to objects of class type "RoomInfo"
+    RoomInfo* all_rooms[61]; //create array of pointers to objects of class type "RoomInfo"
     MakeRooms(all_rooms); //create all RoomInfo objects and store in all_rooms
 
     //Print a welcome message and instructions

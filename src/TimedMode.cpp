@@ -3,7 +3,7 @@
 using namespace std;
 
 void minute_timer(bool &time_over) {
-    for(int i=0;i<30;i++)
+    for(int i=0;i<60;i++)
     {
         this_thread::sleep_for(std::chrono::seconds(1));
     }
@@ -20,7 +20,6 @@ void TimedMode(RoomInfo** all_rooms, unsigned int& score)
 
     bool time_over = false;
     auto f = std::async(std::launch::async, [&time_over]{ minute_timer(time_over); });
-    //auto future = std::async(std::launch::async, minute_timer, time_over); /**/
     char* guessedClassroom;
     //**CHECK INPUT**//
     cout << "Timer started. You have 1 minute..." << endl;
@@ -62,6 +61,7 @@ void TimedMode(RoomInfo** all_rooms, unsigned int& score)
     
      if(score!=0)
     {
+        score = score;
         display_highest_score(score);
     }
    

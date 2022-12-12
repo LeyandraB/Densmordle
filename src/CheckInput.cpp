@@ -8,6 +8,8 @@ bool validBuilding(char* guess)
   if(guess[3] != ' ')
   {
      throw Invalid_Input("Invalid, add a space!");
+     while(getchar()!= '\n')
+          continue;
   }
   
 if (guess[0] == 'A' && guess[1] == 'B' && guess[2] == 'G') 
@@ -57,8 +59,12 @@ if (guess[0] == 'A' && guess[1] == 'B' && guess[2] == 'G')
   //else if (guess[0] == 'S' && guess[1] == 'A' && guess[2] == 'R') sar is in here twice
    // return true;
    else
-    throw Invalid_Input("Invalid, not a building!");
-    return false;
+    {
+      throw Invalid_Input("Invalid, not a building!");
+      while(getchar()!= '\n')
+          continue;
+      return false;
+    }
 }
 
 
@@ -87,8 +93,12 @@ bool validRoomNumber(char* guess)
       continue;
     }
     else
+    {  
       throw Invalid_Input("Invalid, not a room number!");
+      while(getchar()!= '\n')
+          continue;
       return false;
+    }
   }
   return true;
 }
