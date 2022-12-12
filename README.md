@@ -13,7 +13,24 @@ A makefile was created. You should be able to type "make" to compile the files, 
 
 This game runs in C++ (note that it includes <windows.h>). 
 
-[provide test case examples]
-
 ## Link to Video
 https://drive.google.com/file/d/1nHuQl2dIVCzKQ1WOmxQPOMbQuLp4saSS/view?usp=share_link
+### Video description:
+Densmoredle is a game like Wordle, but instead, you're guessing BU classrooms! After you guess, it will show you which characters are in the solution and in the correct place (green), in the solution and in the incorrect place (yellow), or not in the solution at all (red). You can play in 3 different modes: Regular Mode, Limited Mode and Timed Mode.
+
+### Code Examples:
+#### Regular Mode
+This shows an example of the beginning of the game and playing Regular Mode. It also shows the message when user enters a guess without a space between the building name and classroom number.
+
+![Alt Image text](misc/Densmordle_RegularMode.png "Regular Mode")
+
+
+#### Limited Mode
+This is an example of the user losing the game in Limited Mode. You can get a good sense of what the colors show (not in the solution, in the solution but in an incorrect place, or in the solution in the correct place). It also shows the error message when a building entered is not an appropriate abbreviation for a building.
+
+![Alt Image text](misc/Densmordle_LimitedMode.png "Limited Mode") 
+
+#### Timed Mode
+This is an example of the user playing in Timed Mode. It is unclear from the image, but each time the user guesses correctly, a new image is opened in the browser. After the time is up, the user has one more guess, then the score is displayed. A .txt file keeps track of the user's highest score and displays the score (and changes it if necessary).
+
+![Alt Image text](misc/Densmordle_TimedMode.png "Timed Mode")
