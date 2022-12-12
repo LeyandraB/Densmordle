@@ -11,6 +11,9 @@ The player is prompted with a picture of a random classroom on the Charles River
 ## How to build Densmordle
 A makefile was created. You should be able to type "make" to compile the files, then type "./Densmordle.exe" to play the game.
 
+This game runs in C++ (note that it includes <windows.h>). 
+
 [provide test case examples]
 
-## Link to YouTube Video
+## Link to Video
+https://drive.google.com/file/d/1nHuQl2dIVCzKQ1WOmxQPOMbQuLp4saSS/view?usp=share_link
