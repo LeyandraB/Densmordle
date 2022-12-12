@@ -7,7 +7,7 @@ void minute_timer(bool &time_over) {
     {
         this_thread::sleep_for(std::chrono::seconds(1));
     }
-    cout << "Time's up! One minute has passed. Enter a final guess: " << endl;
+    cout << "Time's up! One minute has passed. Enter a final guess: ";
     time_over = true;
     while(getchar()!= '\n')
         continue;
